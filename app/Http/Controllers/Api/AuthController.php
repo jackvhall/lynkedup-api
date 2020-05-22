@@ -28,23 +28,13 @@ class AuthController extends Controller
         ], 200);
     }
 
-    public function login(Request $request)
+    public function local()
     {
-        $loginData = $request->validate([
-            'email' => 'email|required',
-            'password' => 'required'
-        ]);
+        return response()->json(['user' => auth()->user()]);
+    }
 
-        if (!auth()->attempt($loginData)) {
-            return response(['message' => 'Invalid Credentials']);
-        }
-
-        $accessToken = auth()->user()->createToken('authToken')->accessToken;
-
-        return response([
-            'user' => auth()->user(),
-            'access_token' => $accessToken,
-            'message' => 'Logged in successfully'
-        ], 200);
+    public function oauth()
+    {
+        return response()->json(auth()->user());
     }
 }
