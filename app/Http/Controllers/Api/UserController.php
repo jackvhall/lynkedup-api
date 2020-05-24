@@ -35,6 +35,7 @@ class UserController extends Controller
 
         return response([
             'user' => $user,
+            'profile' => $user->profile,
             'message' => 'Created successfully'
         ], 200);
     }

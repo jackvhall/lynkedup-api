@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Profile;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthController extends Controller
 
         $validatedData['password'] = bcrypt($request->password);
         $user = User::create($validatedData);
+        $profile = Profile::create([user_id => $user->id]);
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
