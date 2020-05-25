@@ -39,4 +39,15 @@ class UserController extends Controller
             'message' => 'Created successfully'
         ], 200);
     }
+
+    public function update(Request $request, User $user)
+    {
+        $admin = $request->admin;
+        $user->update([
+            'admin' => $request->admin ? 1 : 0,
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+        return response($user, 200);
+    }
 }
