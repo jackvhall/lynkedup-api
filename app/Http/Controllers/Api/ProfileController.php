@@ -50,13 +50,26 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $profile = auth()->user()->profile;
+        if (!$profile = auth()->user()->profile) {
+            $profile = Profile::create(['user_id' => auth()->user()->id]);
+        } else {
+            $profile = auth()->user()->profile;
+        }
 
-        $profile->update([
-            'about' => $request->about
-        ]);
+        try {
+            $profile->update([
+                'status' => $request->status,
+                'job_title' => $request->jobTitle,
+                'about' => $request->about,
+                'street' => $request->street,
+                'city' => $request->city,
+                'state' => explode(' ', $request->state)[0],
+                'zip' => $request->zip
+            ]);
+        } catch (\Exception $e) {
+            return response(['error' => $e->getMessage()], $e->getCode());
+        }
 
-        $testing = $profile->about;
         return response([
             'message' => 'Profile updated.'
         ] ,200);

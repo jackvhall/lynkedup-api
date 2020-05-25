@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('status')->default('New LynkedUp User!');
             $table->string('job_title')->nullable();
             $table->text('about')->nullable();
-            $table->string('address')->nullable();
+            $table->string('street')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->integer('zip')->nullable();
