@@ -42,12 +42,17 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $admin = $request->admin;
+        if (isset($request->admin)) {
+           $user->admin = $request->admin;
+           $user->save();
+        }
         $user->update([
-            'admin' => $request->admin ? 1 : 0,
             'name' => $request->name,
             'email' => $request->email
         ]);
-        return response($user, 200);
+        return response([
+            'message' => 'User successfully updated',
+            'user' => $user
+        ], 200);
     }
 }
