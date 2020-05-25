@@ -19,7 +19,12 @@ class AuthController extends Controller
 
         $validatedData['password'] = bcrypt($request->password);
         $user = User::create($validatedData);
-        $profile = Profile::create([user_id => $user->id]);
+        try {
+            $profile = Profile::create(['user_id' => $user->id]);
+        } catch (\Exception $e) {
+            return response(['message' => $e->getMessage()], $e->getCode());
+        }
+
 
         $accessToken = $user->createToken('authToken')->accessToken;
 

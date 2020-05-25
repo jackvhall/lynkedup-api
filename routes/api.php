@@ -27,6 +27,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('oauth/me', 'Api\AuthController@oauth');
     Route::get('/profile', 'Api\ProfileController@show');
     Route::patch('/profile', 'Api\ProfileController@update');
+
 });
 
 Route::apiResource('/users', 'Api\UserController')->middleware('auth:api');
+
+
