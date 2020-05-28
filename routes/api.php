@@ -31,5 +31,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 });
 
 Route::apiResource('/users', 'Api\UserController')->middleware('auth:api');
+Route::apiResource('/jobhistory', 'Api\JobHistoryController')->middleware('auth:api');
+Route::apiResource('/jobhistoryentry', 'Api\JobHistoryEntryController')->middleware('auth:api');
 
 

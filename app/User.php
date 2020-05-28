@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function history()
+    {
+        return $this->hasOne(JobHistory::class);
+    }
 }
