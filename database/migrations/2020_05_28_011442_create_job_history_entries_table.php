@@ -15,7 +15,7 @@ class CreateJobHistoryEntriesTable extends Migration
     {
         Schema::create('job_history_entries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_histories_id');
+            $table->foreignId('job_history_id');
             $table->string('org_name');
             $table->string('job_title');
             $table->dateTime('start_date');
@@ -23,7 +23,7 @@ class CreateJobHistoryEntriesTable extends Migration
             $table->text('description');
             $table->timestamps();
 
-            $table->foreign('job_histories_id')->references('id')->on('job_histories')->onDelete('cascade');
+            $table->foreign('job_history_id')->references('id')->on('job_histories')->onDelete('cascade');
         });
     }
 
