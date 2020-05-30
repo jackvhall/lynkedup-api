@@ -16,7 +16,13 @@ class JobHistoryController extends Controller
      */
     public function index()
     {
-        return response(auth()->user()->history->entries, 200);
+        return response(auth()
+            ->user()
+            ->history
+            ->entries()
+            ->orderBy('start_date', 'desc')
+            ->get(),
+            200);
     }
 
     /**
