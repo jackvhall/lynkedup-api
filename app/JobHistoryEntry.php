@@ -8,7 +8,7 @@ class JobHistoryEntry extends Model
 {
     protected $guarded = [];
 
-    public function JobHistory()
+    public function history()
     {
         return $this->belongsTo(JobHistory::class);
     }
