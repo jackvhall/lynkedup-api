@@ -19,9 +19,9 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*', 'https://elastic-chandrasekhar-ca7631.netlify.app'],
+    'allowed_origins' => ['*', 'https://elastic-chandrasekhar-ca7631.netlify.app/*'],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['*'],
 
     'allowed_headers' => ['*'],
 
