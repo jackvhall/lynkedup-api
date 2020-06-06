@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['*', 'https://elastic-chandrasekhar-ca7631.netlify.app'],
 
     'allowed_origins_patterns' => [],
 
