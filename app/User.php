@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(JobHistory::class);
     }
+
+    public function groups()
+    {
+        return $this->belongToMany(Group::class);
+    }
 }
