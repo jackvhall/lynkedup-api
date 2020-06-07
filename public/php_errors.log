@@ -1,0 +1,6 @@
+[07-Jun-2020 03:37:59 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:258
+Stack trace:
+#0 /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(425): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(402): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#2 /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(313): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#3 /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(210): Illuminate\Foundation\Exceptions\ in /Users/jhall/code/projects/LynkedUp/lynkedup-api/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 258
