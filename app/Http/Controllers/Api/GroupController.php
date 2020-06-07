@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Group;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -14,7 +15,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        return response(Group::all(), 200);
     }
 
     /**
@@ -35,7 +36,16 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $group = Group::create($request->validate([
+            'name' => 'string|max:128',
+            'image_url' => 'string|url|nullable',
+            'description' => 'string|max:255|nullable'
+        ]));
+
+        return response([
+            'message' => 'Group successfully created.',
+            'group' => $group
+        ], 200);
     }
 
     /**

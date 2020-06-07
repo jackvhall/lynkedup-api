@@ -15,12 +15,14 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(true);
-            $table->string('description')->nulable(true);
+            $table->string('name')->nullable(false);
+            $table->string('description')->nullable(true);
+            $table->string('category')->nullable(true);
+            $table->string('image_url')->nullable(true);
             $table->timestamps();
         });
 
-        Schema::create('groups_users', function (Blueprint $table) {
+        Schema::create('group_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('group_id');
