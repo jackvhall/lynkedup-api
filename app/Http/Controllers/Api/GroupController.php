@@ -92,4 +92,27 @@ class GroupController extends Controller
     {
         //
     }
+
+    public function join(Group $group)
+    {
+        try {
+            if (auth()->user()->groups->contains($group)) {
+                throw new \Exception('User already in group', 400);
+            }
+            $group->users()->save(auth()->user());
+            return response([
+                'message' => 'Added to group.',
+                'group' => $group
+            ], 200);
+        } catch(\Exception $e) {
+            return response(['message' => $e->getMessage()], $e->getCode());
+        }
+    }
+
+    public function me()
+    {
+        return response([
+            'groups' => auth()->user()->groups
+        ], 200);
+    }
 }
