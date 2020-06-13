@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('/profile', 'Api\ProfileController@update');
     Route::post('/groups/join/{group}', 'Api\GroupController@join');
     Route::get('/groups/me', 'Api\GroupController@me');
+    Route::get('/jobs/me','Api\JobController@myJobs');
     Route::patch('/jobhistory/{jobHistoryEntry}', 'Api\JobHistoryController@update');
     Route::delete('/jobhistory/{jobHistoryEntry}', 'Api\JobHistoryController@destroy');
 });
@@ -37,4 +38,5 @@ Route::apiResource('/users', 'Api\UserController')->middleware('auth:api');
 Route::apiResource('/jobhistory', 'Api\JobHistoryController')->middleware('auth:api');
 Route::apiResource('/education', 'Api\EducationController')->middleware('auth:api');
 Route::apiResource('/groups', 'Api\GroupController')->middleware('auth:api');
+Route::apiResource('/jobs', 'Api\JobController')->middleware('auth:api');
 

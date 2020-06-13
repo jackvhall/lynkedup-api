@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Group::class);
     }
+
+    public function jobs()
+    {
+        return $this->belongsToMany(Job::class);
+    }
 }
