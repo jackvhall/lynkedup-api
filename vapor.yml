@@ -5,6 +5,7 @@ environments:
         database: mysql_main
         memory: 1024
         cli-memory: 512
+        queues: false
         runtime: php-7.4
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
@@ -13,9 +14,11 @@ environments:
         database: mysql_main
         memory: 1024
         cli-memory: 512
+        queues: false
         runtime: php-7.4
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
             - 'php artisan event:cache'
+            - 'php artisan test'
         deploy:
           - 'php artisan migrate --force'

@@ -37,7 +37,6 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile, Request $request)
     {
-
         return auth()->user()->profile;
     }
 

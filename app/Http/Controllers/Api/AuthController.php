@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use App\JobHistory;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
